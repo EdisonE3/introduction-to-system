@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+
+\begin{document}
+\section{Topic 1}
+\subsection{Install Ubuntu (suggested) on your computer or install Ubuntu on a virtual machine.}
+Download the Ubuntu image from \url{ubuntu.com} and install it follow the guide.
+
+\subsection{Setup Latex and Git environment on Ubuntu.}
+For latex:
+\begin{itemize}
+    \item sudo agt-get install texlive
+    \item sudo apt-get install texlive-full
+\end{itemize}
+
+For Git:
+\begin{itemize}
+    \item sudo agt-get install git
+\end{itemize}
+
+\subsection{Create a private repo with Git on Github.}
+Sign in the github, and click the button \textbf{New repository}.
+Then we can set the porperty of the repo.
+After that, we can use commands as following:
+\begin{itemize}
+    \item git init
+    \item git add README.md
+    \item git commit -m "init"
+    \item git remote add origin \url{github.com/xxx/xxx}
+    \item git push
+\end{itemize}
+
+\subsection{Submit arbitrary files to the repo with comments using Terminal in Ubuntu.}
+\begin{itemize}
+    \item git add *
+    \item git commit -m "update"
+    \item git pull
+    \item git push
+\end{itemize}
+
+\subsection{Find a way to generate a submission conflict, and solve it.}
+We can clone the repo in another place.
+Then we can modify the same file.
+Then these two file are pushed to the remote.
+At this time, one file will be notified that there is a conflict.
+We can solve the conflict manually.
+Then we can push it successfully.
+
+\end{document}
