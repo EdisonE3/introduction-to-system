@@ -1,0 +1,58 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{CJK}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{geometry}
+ \usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+
+
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={The application of asm and taint analysis in Commodity JVMs},%<!CHANGE!
+pdfkeywords={Taint Tracking, Dataﬂow Analysis}}%<^!CHANGE!
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\title{Student Training Report 2}
+% The paper headers
+
+% make the title area
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+1) Clone the source code of Linux kernel from the publicly available repo and find the specific kernel version of Ubuntu you installed in Topic 1.
+2) Build the kernel image and replace the original image with the one built by you. Make sure your kernel works well.
+3) Modify the kernel source code and insert some personal marks or logs into the code, then rebuild a kernel image. Show that your marks or logs work well.
+
+\section{Requirements}
+
+\begin{itemize}
+    \item Clone the source code of Linux kernel from the publicly available repo and find the specific kernel version of Ubuntu you installed in Topic 1.
+    \item Build the kernel image and replace the original image with the one built by you. Make sure your kernel works well.
+    \item Modify the kernel source code and insert some personal marks or logs into the code, then rebuild a kernel image. Show that your marks or logs work well.
+\end{itemize}
+
+\section{Steps}
+
+\begin{itemize}
+    \item using \textbf{uname -a} to get the version of Ubuntu and the kernel version is 5.15
+    \item we clone the source code from \url{https://github.com/torvalds/linux}
+    \item We can use busybox to build the Image and launch the Image through qemu
+    \item We can modify the file such as setup.c and using function pr_log to add additional logs
+\end{itemize}  
+
+\end{document}
+
+
