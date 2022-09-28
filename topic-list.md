@@ -14,10 +14,10 @@ Topic 2: Customize Linux kernel (1 week, easy).
 5) Create a directory named "Topic 2" in the repo you created in Topic 1, and submit your code and report to the directory.
 
 Topic 3: Play with devices (2 weeks, medium)
-1) Write a simple loadable kernel module, and load it into the kernel you built in Topic 2.
-2) Write a console driver that directly controls the MMIO registers of the console. The driver should provide a printf-like function, which is a variadic function and outputs the formatted strings via the console.
-3) Add a character device under "/dev" directory, and name your device as whatever you like.
-4) Write a driver for your device in the kernel module you created in 1, and write a user-level application to communicate with your device. Your driver accepts inputs (as A) from the character device you created in 3, and then outputs "Hello A" via the console driver you wrote in 2.
+1) Write a simple loadable kernel module, and load it into the kernel you built in Topic 2. (v)
+2) Write a console driver that directly controls the MMIO registers of the console. The driver should provide a printf-like function, which is a variadic function and outputs the formatted strings via the console. ()
+3) Add a character device under "/dev" directory, and name your device as whatever you like. (v)
+4) Write a driver for your device in the kernel module you created in 1, and write a user-level application to communicate with your device. Your driver accepts inputs (as A) from the character device you created in 3, and then outputs "Hello A" via the console driver you wrote in 2. 
 5) Write a two-column report describing your steps to accomplish 1-4 in English with Latex. Make sure your Latex report contains text, table, code snippet, and figure.
 6) Create a directory named "Topic 3" in the repo you created in Topic 1, and submit your code and report to the directory.
 

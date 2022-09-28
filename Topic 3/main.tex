@@ -1,0 +1,77 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{CJK}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{geometry}
+ \usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+
+
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={The application of asm and taint analysis in Commodity JVMs},%<!CHANGE!
+pdfkeywords={Taint Tracking, Dataﬂow Analysis}}%<^!CHANGE!
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\title{Student Training Report 2}
+% The paper headers
+
+% make the title area
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+We can use the following intruction to launch qemu:
+\begin{lstlisting}
+    qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt \
+	-m 1024 -smp 4 -kernel arch/arm64/boot/Image --append "rdinit=/linuxrc root=/dev/vda rw console=ttyAMA0 loglevel=8"  -nographic \
+	-fsdev local,security_model=passthrough,id=fsdev0,path=./kmodules \
+	-device virtio-9p-pci,id=fs0,fsdev=fsdev0,mount_tag=hostshare
+\end{lstlisting}
+
+Then we can using following instruction to enable share directory:
+\begin{lstlisting}
+    mount -t 9p -o trans=virtio,version=9p2000.L hostshare /mnt
+\end{lstlisting}
+
+For searching online, we can know that the aarch64 qemu using pl011 as its console device.
+To find the address of pl011, we can dump the device tree of qemu:
+\begin{lstlisting}
+    qemu-system-aarch64 \
+    -M  virt,dumpdtb=file.dtb \
+\end{lstlisting}
+
+Then we can use dtc to get convert dtb file to dts file.
+From the dts file, we can know the address of pl011.
+
+After that, we can use the function ioread32 and iowrite32 to 
+read and write the value of the pl011.
+
+For character device, we can use the library <linux/cdev.h> to 
+create a driver for such a device. Then we can get the 
+minor and major of this device.
+
+Then we can use following command to create a corresponding file: 
+\begin{lstlisting}
+    mknod "/dev/dev_name" c major minor 
+\end{lstlisting}
+
+For a user-level application, it can use system call such as open and read
+to interact with the device.
+
+The device driver can modify the structure file_operations to define the behaviour. 
+
+\end{document}
+
+
